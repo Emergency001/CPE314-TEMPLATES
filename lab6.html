@@ -2,15 +2,104 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM Manipulation</title>
+
+    <style>
+        body {
+            font-family: Verdana, Geneva, sans-serif;
+            margin: 20px;
+            background-color: #f4f8fb;
+        }
+
+        h1 {
+            color: #1a237e;
+        }
+
+        .box {
+            background-color: #e8eaf6;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        #display {
+            margin-top: 15px;
+            font-weight: bold;
+            color: darkgreen;
+        }
+    </style>
 </head>
 <body>
-    <h1 id="title">Original Title</h1>
-    <button onclick="changeTitle()">Change Title</button>
+
+    <h1 id="title">23/EG/CO/135</h1>
+
+    <button onclick="changePage()">Change Page</button>
+
+    <p id="paragraph">
+        This paragraph will be modified using JavaScript.
+    </p>
+
+    <ul id="courseList">
+        <li>HTML</li>
+        <li>CSS</li>
+    </ul>
+
+    <div class="box">
+        This content can be shown or hidden.
+    </div>
+
+    <button onclick="toggleBox()">Toggle Content</button>
+
+    <br><br>
+
+    <input type="text" id="studentInput" placeholder="Enter your name">
+
+    <button onclick="displayName()">Display Name</button>
+
+    <div id="display"></div>
+
     <script>
-        function changeTitle() {
-            document.getElementById("title").innerHTML = "New Title!";
+
+        function changePage() {
+
+            document.getElementById("title").textContent =
+                "DOM Manipulation Successful";
+
+            document.getElementById("paragraph").style.color = "crimson";
+
+            let item = document.createElement("li");
+            item.textContent = "JavaScript";
+
+            document.getElementById("courseList").appendChild(item);
+
+            let missingElement = document.getElementById("missing");
+
+            if (!missingElement) {
+                console.log("Element with ID 'missing' was not found.");
+            }
         }
+
+        function toggleBox() {
+
+            let box = document.querySelector(".box");
+
+            if (box.style.display === "none") {
+                box.style.display = "block";
+            } else {
+                box.style.display = "none";
+            }
+        }
+
+        function displayName() {
+
+            let name = document.getElementById("studentInput").value;
+
+            document.getElementById("display").textContent =
+                "Hello, " + name + "! Welcome to DOM Manipulation.";
+        }
+
     </script>
+
 </body>
-</html>
+    </html>
