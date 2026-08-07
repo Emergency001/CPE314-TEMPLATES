@@ -1,3 +1,71 @@
-body { font-family: sans-serif; }
-ul { list-style-type: none; }
-li { margin: 5px; padding: 5px; background: #eee; }
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f7fb;
+}
+
+h1 {
+    text-align: center;
+    color: #0d47a1;
+}
+
+input {
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+li:hover {
+    background-color: #d6eaff;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.delete {
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+}
+
+@media (max-width: 600px) {
+
+    input,
+    button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    body {
+        background-color: #fff8e1;
+    }
+}
